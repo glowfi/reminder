@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block title %} Home {% endblock title %} {% block
+body %}
+
+<div class="container">
+  <form action="/" method="POST">
+    <div class="mt-3">
+      <label for="title" class="form-label">TITLE</label>
+      <input
+        type="title"
+        class="form-control"
+        id="title"
+        placeholder="Title goes here."
+        name="title"
+      />
+    </div>
+    <div class="mt-3">
+      <label for="desc" class="form-label">Description</label>
+      <textarea
+        class="form-control"
+        id="desc"
+        rows="3"
+        placeholder="Description goes here."
+        name="desc"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-success mt-4">ADD</button>
+  </form>
+</div>
+
+<div class="container mt-4">
+  <div class="row text-center center justify-content-center">
+    {% if query|length==0 %}
+    <h1>NO REMINDERS!</h1>
+    {% else %} {% for i in query %}
+    <div class="card mx-4 my-4" style="width: 18rem">
+      <div class="card-body">
+        <h6>Reminder {{loop.index}}</h6>
+        <h5 class="card-title">{{i.title}}</h5>
+        <p class="card-text">{{i.desc}}</p>
+        <a href="/update/{{i.sno}}" class="btn btn-primary mx-2">Update</a>
+        <a href="/delete/{{i.sno}}" class="btn btn-danger mx-2">Delete</a>
+      </div>
+    </div>
+    {% endfor %} {% endif %}
+  </div>
+</div>
+{% endblock body %}
