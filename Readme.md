@@ -14,9 +14,10 @@ flask run
 
 **Features**
 
-+Update
-+Create
-+Delete
+-   Update Reminders
+-   Create Reminders
+-   Delete Reminders
+-   Bonus : Can be used as a note taking app also
 
 ### DEMO
 
